@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import BlogList from './BlogList';
 const Home = () => {
 
@@ -12,6 +12,11 @@ const Home = () => {
         let newBlogs = blogs.filter(blog => blog.id != id);
         setBlogs(newBlogs);
     }
+    useEffect(()=>{ //this function reuns with every render
+        //prescribed to not change state in this beacause it will call rerenderwhich again call this function and we stuck in a continuous loop
+        console.log('use effect run');
+        console.log(blogs);
+    });
     return (
         <>
            <div className="home">
