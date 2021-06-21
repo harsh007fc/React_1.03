@@ -3,6 +3,7 @@ import BlogList from './BlogList';
 const Home = () => {
 
     let [blogs,setBlogs] = useState(null);
+    let [isPending,setIsPending] = useState(true);
 
 
 
@@ -16,12 +17,14 @@ const Home = () => {
         .then(res=>{
            return res.json();
         }).then((data)=>{
-            setBlogs(data)
+            setBlogs(data);
+            setIsPending(false);
         })
     },[]);
     return (
         <>
            <div className="home">
+               {isPending && <div>Loading...</div>}
               { blogs && <BlogList blogs={blogs} title='All Blogs'/>}
             </div> 
         </>
