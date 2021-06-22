@@ -1,4 +1,4 @@
-
+// npx json-server --watch data/db.json --port 8000
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 
