@@ -18,7 +18,7 @@ const Home = () => {
            return res.json();
         }).then((data)=>{
             setBlogs(data);
-            setIsPending(false);
+            setIsPending(false); 
         })
     },[]);
     return (
